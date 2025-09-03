@@ -51,3 +51,12 @@ input {
   width: 95%;
   margin: 0 auto;
 }
+.app {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  min-height: 100vh;
+  .footer {
+    margin-top: auto;
+  }
+}
