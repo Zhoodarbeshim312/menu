@@ -3,7 +3,13 @@ import arrowLeft from "../../../../assets/images/arrowLeft.svg";
 import arrowRight from "../../../../assets/images/arrowRight.svg";
 import { FaArrowRight, FaPhoneAlt } from "react-icons/fa";
 import { ImLocation2 } from "react-icons/im";
+import Aos from "aos";
+import "aos/dist/aos.css";
+import { useEffect } from "react";
 const Hero = () => {
+  useEffect(() => {
+    Aos.init({});
+  }, []);
   return (
     <section id="hero">
       <div className="container">
@@ -11,25 +17,39 @@ const Hero = () => {
           <div className="hero--lineTop"></div>
           <div className="hero--lineBottom"></div>
           <div className="hero--lineLeft"></div>
-          <div className="hero--icons">
+          <div
+            data-aos="fade-up"
+            data-aos-duration="3000"
+            className="hero--icons"
+          >
             <img src={arrowLeft} alt="img" />
             <p>Delicious</p>
             <img src={arrowRight} alt="img" />
           </div>
-          <h1>Italian Cuisine</h1>
-          <p>
+          <h1 data-aos="fade-up" data-aos-duration="3000">
+            Italian Cuisine
+          </h1>
+          <p data-aos="fade-up" data-aos-duration="3000">
             Classic steak & delicious with delightfully unexpenced twists.
             <br />
             The Restaurant`s sunny decor was inspired by the diners
           </p>
-          <div className="hero--btn">
+          <div
+            data-aos="fade-up"
+            data-aos-duration="3000"
+            className="hero--btn"
+          >
             <div className="hero--btn__line"></div>
             <button>
               Reserve Your Table <FaArrowRight />
             </button>
             <div className="hero--btn__line"></div>
           </div>
-          <div className="hero--info">
+          <div
+            data-aos="fade-up"
+            data-aos-duration="3000"
+            className="hero--info"
+          >
             <div className="hero--info__text">
               <h3>Location</h3>
               <div className="hero--info__text--line"></div>
@@ -44,7 +64,11 @@ const Hero = () => {
               </p>
             </div>
           </div>
-          <div className="hero--contact">
+          <div
+            data-aos="fade-up"
+            data-aos-duration="3000"
+            className="hero--contact"
+          >
             <div className="hero--contact__text">
               <h3>Hotline</h3>
               <div className="hero--contact__text--line"></div>

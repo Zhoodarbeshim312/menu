@@ -6,7 +6,11 @@ const About = () => {
     <section id="about">
       <div className="container">
         <div className="about">
-          <div className="about--left">
+          <div
+            data-aos="fade-up"
+            data-aos-duration="3000"
+            className="about--left"
+          >
             <div className="about--left__icon">
               <img src={arrowLeft} alt="img" />
               <p>About Us</p>
@@ -17,7 +21,11 @@ const About = () => {
             </h1>
             <img src={aboutLeftImg} alt="img" />
           </div>
-          <div className="about--right">
+          <div
+            data-aos="fade-up"
+            data-aos-duration="3000"
+            className="about--right"
+          >
             <p>
               Try dishes that will open up new tastes for you and delight your
               eyes with their appearance. Here you will find a cozy atmosphere,

@@ -10,7 +10,11 @@ const Visit = () => {
     <section id="visit">
       <div className="container">
         <div className="visit">
-          <div className="visit--left">
+          <div
+            data-aos="fade-up"
+            data-aos-duration="3000"
+            className="visit--left"
+          >
             <div className="visit--left__icon">
               <img src={arrowLeft} alt="img" />
               <p>Visit Restaurant</p>
@@ -39,7 +43,11 @@ const Visit = () => {
               <div className="visit--left__btn--lineBottom"></div>
             </div>
           </div>
-          <div className="visit--right">
+          <div
+            data-aos="fade-up"
+            data-aos-duration="3000"
+            className="visit--right"
+          >
             <h2>contact Info</h2>
             <h3>
               <MdPhoneInTalk />

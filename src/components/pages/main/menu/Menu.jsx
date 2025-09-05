@@ -66,17 +66,25 @@ export default function Menu() {
     <div id="menu">
       <div className="container">
         <div className="menu">
-          <div className="menu__title">
+          <div
+            data-aos="fade-up"
+            data-aos-duration="3000"
+            className="menu__title"
+          >
             <img src={arrowLeft} alt="img" />
             <h3>Main Menu</h3>
             <img src={arrowRight} alt="img" />
           </div>
-          <h2>
+          <h2 data-aos="fade-up" data-aos-duration="3000">
             DExceptional Quality. <br />
             Delightfully Delicious
           </h2>
 
-          <div className="menu--card">
+          <div
+            data-aos="fade-up"
+            data-aos-duration="3000"
+            className="menu--card"
+          >
             <div className="menu--card__list">
               {categories.map((c) => (
                 <button onClick={() => setActive(c)}>{c}</button>

@@ -20,7 +20,11 @@ const Best = () => {
     <section id="best">
       <div className="container">
         <div className="best">
-          <div className="best--left">
+          <div
+            data-aos="fade-up"
+            data-aos-duration="3000"
+            className="best--left"
+          >
             <div className="best--left__icons">
               <img src={arrowLeft} alt="img" />
               <p>Best Sellers</p>
@@ -36,7 +40,11 @@ const Best = () => {
             </p>
           </div>
 
-          <div className="best--right">
+          <div
+            data-aos="fade-up"
+            data-aos-duration="3000"
+            className="best--right"
+          >
             <div className="best--right__images" ref={scrollRef}>
               <img src={bestImg1} alt="img" />
               <img src={bestImg1} alt="img" />

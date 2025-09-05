@@ -1,16 +1,50 @@
 #header {
-    z-index: 99;
+  z-index: 99;
   padding: 20px 0;
   background: #1b2026bd;
   backdrop-filter: blur(5px);
   position: sticky;
   top: 0;
+  animation: 1.5s head alternate ease-in-out;
+  @keyframes head {
+    0% {
+      transform: translateY(-200px);
+    }
+  }
   .header {
     display: flex;
     align-items: center;
     justify-content: space-between;
     h1 {
       font-family: "Playfair Display", serif;
+    }
+
+    &--menu {
+      display: none;
+      align-items: center;
+      gap: 10px;
+      select {
+        display: flex;
+        font-size: 18px;
+        border: none;
+        outline: none;
+        background: #1b2026bd;
+        color: white;
+      }
+      button {
+        display: flex;
+        font-size: 40px;
+        color: white;
+        background: none;
+        border: none;
+        outline: none;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      @media (max-width: 895px) {
+        display: flex;
+      }
     }
     &--nav {
       display: flex;
@@ -73,6 +107,99 @@
           }
         }
       }
+      @media (max-width: 895px) {
+        display: none;
+      }
+      select {
+        cursor: pointer;
+        background: #1b2026bd;
+        font-size: 18px;
+        color: white;
+        border: none;
+        outline: none;
+        font-family: "Playfair Display", serif;
+
+        option {
+          background: #1b2026bd;
+        }
+      }
+    }
+  }
+  .modal {
+    z-index: 99;
+    background: #1b2026bd;
+    backdrop-filter: blur(5px);
+    padding: 10px;
+    top: 100px;
+    right: 10px;
+    position: fixed;
+    transition: 0.2s ease-in-out;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    &--nav {
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+      gap: 40px;
+      a {
+        font-family: "League Spartan", sans-serif;
+        font-weight: 500;
+        font-style: Medium;
+        font-size: 18px;
+        line-height: 100%;
+        color: white;
+        transition: 0.2s ease-in-out;
+        width: max-content;
+        position: relative;
+        &::after {
+          content: "";
+          bottom: -4px;
+          position: absolute;
+          height: 2px;
+          width: 100%;
+          border-radius: 50px;
+          left: 0;
+          background: #ef272c;
+          transition: 0.3s ease-in-out;
+          transform: scaleX(0);
+        }
+        &:hover::after,
+        &.active::after {
+          transform: scaleX(1);
+        }
+      }
+      &__form {
+        position: relative;
+        button {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          background: none;
+          color: white;
+          left: 3px;
+          top: 5px;
+          font-size: 25px;
+          position: absolute;
+        }
+        input {
+          font-family: "League Spartan", sans-serif;
+          font-weight: 400;
+          font-style: Medium;
+          font-size: 18px;
+          background: #ef272c;
+          padding-left: 30px;
+          width: 187px;
+          height: 37px;
+          color: white;
+          border-width: 0.8px;
+          border-radius: 8px;
+          &::placeholder {
+            color: white;
+          }
+        }
+      }
+
       select {
         cursor: pointer;
         background: #1b2026bd;
