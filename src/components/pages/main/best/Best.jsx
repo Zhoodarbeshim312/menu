@@ -10,7 +10,7 @@ const Best = () => {
   const scrollRight = () => {
     if (scrollRef.current) {
       scrollRef.current.scrollBy({
-        left: 560,
+        left: 280,
         behavior: "smooth",
       });
     }
@@ -38,6 +38,12 @@ const Best = () => {
               See what new at your Cafesio and You`ll find Cafesio <br />
               Covent Carden moments.
             </p>
+            <span>
+              Each location has a menu that`s <br /> curated just for them.{" "}
+              <br />
+              See what new at your Cafesio and <br /> You`ll find Cafesio <br />
+              Covent Carden moments.
+            </span>
           </div>
 
           <div

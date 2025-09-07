@@ -6,29 +6,58 @@
     align-items: center;
     justify-content: center;
     justify-content: space-evenly;
+    @media (max-width: 550px) {
+      flex-direction: column;
+      text-align: center;
+    }
     &--left {
       display: flex;
       flex-direction: column;
       gap: 40px;
       width: 400px;
-
       h1 {
         font-family: "Playfair Display", serif;
         font-weight: 600;
         font-size: 40px;
       }
-
       p {
         font-family: "League Spartan", sans-serif;
         font-size: 16px;
         line-height: 24px;
       }
-
+      span {
+        display: none;
+        font-family: "League Spartan", sans-serif;
+        font-size: 16px;
+        line-height: 24px;
+      }
+      @media (max-width: 735px) {
+        gap: 20px;
+        width: 350px;
+        h1 {
+          font-size: 30px;
+        }
+        p {
+          font-size: 14px;
+        }
+      }
+      @media (max-width: 355px) {
+        width: 300px;
+        p {
+          display: none;
+        }
+        span {
+          display: flex;
+          justify-content: center;
+        }
+      }
       &__icons {
         display: flex;
         align-items: center;
         gap: 20px;
-
+        @media (max-width: 550px) {
+          justify-content: center;
+        }
         p {
           font-family: "Shalimar", cursive;
           font-size: 40px;
@@ -39,10 +68,14 @@
     &--right {
       display: flex;
       align-items: center;
-    //   gap: 20px;
       width: 600px;
       position: relative;
-
+      @media (max-width: 1025px) {
+        width: 320px;
+      }
+      @media (max-width: 735px) {
+        width: 240px;
+      }
       button {
         display: flex;
         align-items: center;
@@ -53,6 +86,11 @@
         font-size: 35px;
         cursor: pointer;
       }
+      @media (max-width: 550px) {
+        button {
+          display: none;
+        }
+      }
 
       &__images {
         display: flex;
@@ -61,9 +99,14 @@
         overflow-x: auto;
         scroll-behavior: smooth;
         scrollbar-width: none;
-
         &::-webkit-scrollbar {
           display: none;
+        }
+        @media (max-width: 735px) {
+          img {
+            width: 200px;
+            height: 200px;
+          }
         }
       }
     }

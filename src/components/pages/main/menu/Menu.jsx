@@ -12,6 +12,7 @@ const categories = [
   "Fast foods",
 ];
 
+
 const menuItems = [
   {
     title: "Beer Brewery",

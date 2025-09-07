@@ -4,12 +4,16 @@
     display: flex;
     align-items: flex-end;
     justify-content: space-evenly;
+    @media (max-width: 550px) {
+      flex-direction: column;
+      gap: 20px;
+      align-items: center;
+    }
     &--left {
       width: 500px;
       display: flex;
       align-items: flex-start;
       flex-direction: column;
-
       h1 {
         font-family: "Playfair Display", serif;
         margin: 10px 0 40px 0;
@@ -18,10 +22,54 @@
         font-size: 40px;
         line-height: 100%;
       }
+      img {
+        width: 100%;
+      }
+      @media (max-width: 1190px) {
+        img {
+          width: 400px;
+        }
+      }
+      @media (max-width: 865px) {
+        width: 300px;
+        img {
+          width: 300px;
+        }
+        h1 {
+          font-size: 30px;
+          margin: 10px 0 20px 0;
+        }
+      }
+      @media (max-width: 665px) {
+        width: 250px;
+        img {
+          width: 250px;
+        }
+        h1 {
+          font-size: 30px;
+          margin: 10px 0 20px 0;
+        }
+      }
+      @media (max-width: 550px) {
+        align-items: center;
+        text-align: center;
+        width: 80%;
+        p {
+          font-size: 14px;
+          line-height: 18px;
+        }
+        img {
+          width: 100%;
+        }
+      }
       &__icon {
         display: flex;
         align-items: center;
         gap: 20px;
+        img {
+          width: 52px;
+          height: 16px;
+        }
         p {
           font-family: "Shalimar", cursive;
           font-weight: 400;
@@ -29,22 +77,79 @@
           font-size: 40px;
           line-height: 100%;
         }
+        @media (max-width: 665px) {
+          p {
+            font-family: "Shalimar", cursive;
+            font-weight: 400;
+            font-style: Regular;
+            font-size: 20px;
+            line-height: 100%;
+          }
+        }
       }
     }
     &--right {
       width: 500px;
       display: flex;
-      align-items: flex-start;
+      align-items: flex-end;
       flex-direction: column;
-
       p {
         font-family: "League Spartan", sans-serif;
         margin-bottom: 30px;
-
         font-weight: 400;
         font-style: Regular;
         font-size: 16px;
         line-height: 24px;
+      }
+      img {
+        width: 100%;
+      }
+      @media (max-width: 1190px) {
+        img {
+          width: 400px;
+        }
+        p {
+          width: 400px;
+        }
+      }
+      @media (max-width: 865px) {
+        width: 300px;
+        img {
+          width: 300px;
+        }
+        p {
+          margin-bottom: 15px;
+          font-size: 14px;
+          width: 300px;
+        }
+      }
+      @media (max-width: 665px) {
+        width: 250px;
+        img {
+          width: 250px;
+        }
+        p {
+          margin-bottom: 15px;
+          font-size: 10px;
+          width: 250px;
+          line-height: 18px;
+        }
+      }
+      @media (max-width: 550px) {
+        flex-direction: column-reverse;
+        align-items: center;
+        text-align: center;
+        width: 80%;
+        p {
+          width: 100%;
+          font-size: 14px;
+          width: 250px;
+          line-height: 18px;
+          margin: 10px 0 0 0;
+        }
+        img {
+          width: 100%;
+        }
       }
     }
   }

@@ -34,6 +34,11 @@ const Hero = () => {
             <br />
             The Restaurant`s sunny decor was inspired by the diners
           </p>
+          <span data-aos="fade-up" data-aos-duration="3000">
+            Classic steak & delicious with <br /> delightfully unexpenced
+            twists. <br />
+            The Restaurant`s sunny decor was <br /> inspired by the diners
+          </span>
           <div
             data-aos="fade-up"
             data-aos-duration="3000"
@@ -46,9 +51,10 @@ const Hero = () => {
             <div className="hero--btn__line"></div>
           </div>
           <div
-            data-aos="fade-up"
+            data-aos="fade-right"
             data-aos-duration="3000"
             className="hero--info"
+            data-aos-anchor-placement="top-bottom"
           >
             <div className="hero--info__text">
               <h3>Location</h3>
@@ -62,11 +68,21 @@ const Hero = () => {
                 />
                 Rua da moeda 1g,1200-275,Portugal
               </p>
+              <span>
+                <ImLocation2
+                  style={{
+                    color: "red",
+                    fontSize: "20px",
+                  }}
+                />
+                Rua da moeda <br /> 1g,1200-275,Portugal
+              </span>
             </div>
           </div>
           <div
-            data-aos="fade-up"
+            data-aos="fade-left"
             data-aos-duration="3000"
+            data-aos-anchor-placement="top-bottom"
             className="hero--contact"
           >
             <div className="hero--contact__text">

@@ -30,11 +30,6 @@ const Header = () => {
             </select>
           </div>
           <div className="header--menu">
-            <select>
-              <option value="En">En</option>
-              <option value="Ru">Ru</option>
-              <option value="Kg">Kg</option>
-            </select>
             <button onClick={() => setMenu(!menu)}>
               <HiOutlineMenuAlt3 />
             </button>
@@ -51,11 +46,17 @@ const Header = () => {
             <NavLink to={"/aboutUs"}>About Us</NavLink>
             <NavLink to={"/menu"}>Menu</NavLink>
             <NavLink to={"/contacts"}>Contacts</NavLink>
-            <div className="header--nav__form">
-              <input type="text" placeholder="Search" />
-              <button>
-                <IoSearchOutline />
-              </button>
+            <div
+              style={{
+                display: "flex",
+                alignItems: "center",
+                gap: "10px",
+              }}
+              className="header--nav__language"
+            >
+              <a>EN</a>
+              <a>RU</a>
+              <a>KG</a>
             </div>
           </div>
         </div>

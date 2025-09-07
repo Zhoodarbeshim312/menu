@@ -20,12 +20,54 @@
       line-height: 100%;
     }
     p {
+      text-align: center;
       margin-bottom: 20px;
       font-family: "League Spartan", sans-serif;
       font-weight: 500;
       font-style: Medium;
       font-size: 16px;
       line-height: 100%;
+    }
+    span {
+      display: none;
+      text-align: center;
+      margin-bottom: 20px;
+      font-family: "League Spartan", sans-serif;
+      font-weight: 500;
+      font-style: Medium;
+      font-size: 16px;
+      line-height: 100%;
+    }
+    @media (max-width: 700px) {
+      h1 {
+        margin-bottom: 20px;
+        font-family: "Playfair Display", serif;
+        font-weight: 600;
+        font-size: 44px;
+        line-height: 100%;
+      }
+    }
+    @media (max-width: 455px) {
+      h1 {
+        margin-bottom: 20px;
+        font-family: "Playfair Display", serif;
+        font-weight: 600;
+        font-size: 30px;
+        line-height: 100%;
+      }
+      p {
+        font-size: 14px;
+      }
+    }
+    @media (max-width: 400px) {
+      p {
+        display: none;
+        width: 280px;
+        font-size: 14px;
+      }
+      span {
+        display: flex;
+      }
     }
     &--icons {
       display: flex;
@@ -89,11 +131,39 @@
           text-transform: capitalize;
           margin: 0;
         }
+        span {
+          text-align: left;
+          display: none;
+          align-items: center;
+          gap: 5px;
+          font-family: "League Spartan", sans-serif;
+          font-weight: 500;
+          font-style: Medium;
+          font-size: 12px;
+          line-height: 100%;
+          text-transform: capitalize;
+          margin: 0;
+        }
+        @media (max-width: 700px) {
+          align-items: flex-start;
+          flex-direction: column;
+        }
+        @media (max-width: 455px) {
+          p {
+            display: none;
+          }
+          span {
+            display: flex;
+          }
+        }
         &--line {
           height: 1px;
           width: 50px;
           background: #ffffff;
         }
+      }
+      @media (max-width: 455px) {
+        left: 20px;
       }
     }
     &--contact {
@@ -126,11 +196,24 @@
           text-transform: capitalize;
           margin: 0;
         }
+
+        @media (max-width: 700px) {
+          align-items: flex-end;
+          flex-direction: column;
+        }
+        @media (max-width: 400px) {
+          p {
+            width: 86px;
+          }
+        }
         &--line {
           height: 1px;
           width: 50px;
           background: #ffffff;
         }
+      }
+      @media (max-width: 455px) {
+        right: 20px;
       }
     }
     &--lineTop {
