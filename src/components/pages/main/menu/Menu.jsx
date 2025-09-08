@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import "./Menu.scss";
 import arrowRight from "../../../../assets/images/arrowRight.svg";
 import arrowLeft from "../../../../assets/images/arrowLeft.svg";
+import { useNavigate } from "react-router-dom";
 
 const categories = [
   "Desserts",
@@ -11,7 +12,6 @@ const categories = [
   "Eastern cuisine",
   "Fast foods",
 ];
-
 
 const menuItems = [
   {
@@ -60,6 +60,7 @@ const menuItems = [
 
 export default function Menu() {
   const [active, setActive] = useState(categories[0]);
+  const nav = useNavigate();
 
   const filteredItems = menuItems.filter((item) => item.category === active);
 
@@ -103,7 +104,9 @@ export default function Menu() {
                 </div>
               ))}
 
-              <button className="menu__cta">VIEW FULL MENU →</button>
+              <button onClick={() => nav("/menu")} className="menu__cta">
+                VIEW FULL MENU →
+              </button>
             </div>
           </div>
         </div>

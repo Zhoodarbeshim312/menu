@@ -4,6 +4,11 @@
     display: flex;
     align-items: flex-start;
     justify-content: space-evenly;
+    @media (max-width: 750px) {
+      flex-direction: column;
+      align-items: center;
+      gap: 20px;
+    }
     .btns {
       display: flex;
       flex-direction: column;
@@ -50,6 +55,16 @@
       width: 700px;
       height: 440px;
       overflow-y: scroll;
+      @media (max-width: 1010px) {
+        width: 400px;
+      }
+      @media (max-width: 750px) {
+        justify-content: center;
+        gap: 20px;
+      }
+      @media (max-width: 400px) {
+        width: 300px;
+      }
       .card {
         border-radius: 5px;
         display: flex;
