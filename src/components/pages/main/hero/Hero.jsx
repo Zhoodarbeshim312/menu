@@ -6,7 +6,12 @@ import { ImLocation2 } from "react-icons/im";
 import Aos from "aos";
 import "aos/dist/aos.css";
 import { useEffect } from "react";
+import userImg from "../../../../assets/images/modalImg1.svg";
+import phoneImg from "../../../../assets/images/modalImg2.svg";
+import { IoClose } from "react-icons/io5";
+import { useState } from "react";
 const Hero = () => {
+  const [modal, setModal] = useState(false);
   useEffect(() => {
     Aos.init({});
   }, []);
@@ -45,7 +50,7 @@ const Hero = () => {
             className="hero--btn"
           >
             <div className="hero--btn__line"></div>
-            <button>
+            <button onClick={() => setModal(true)}>
               Reserve Your Table <FaArrowRight />
             </button>
             <div className="hero--btn__line"></div>
@@ -98,6 +103,42 @@ const Hero = () => {
                 +771219900
               </p>
             </div>
+          </div>
+        </div>
+        <div
+          style={{
+            opacity: modal ? "1" : "0",
+            visibility: modal ? "visible" : "hidden",
+            pointerEvents: modal ? "auto" : "none",
+          }}
+          className="modal"
+        >
+          <div
+            style={{
+              transform: modal ? "scale(1)" : "scale(0)",
+              visibility: modal ? "visible" : "hidden",
+              pointerEvents: modal ? "auto" : "none",
+            }}
+            className="modal--form"
+          >
+            <a onClick={() => setModal(false)}>
+              <IoClose />
+            </a>
+            <div className="modal--form__img">
+              <img src={userImg} alt="img" />
+              <div className="modal--form__img--info">
+                <label htmlFor="">NAME</label>
+                <input type="text" placeholder="Enter your name" />
+              </div>
+            </div>
+            <div className="modal--form__img">
+              <img src={phoneImg} alt="img" />
+              <div className="modal--form__img--info">
+                <label htmlFor="">PHONE</label>
+                <input type="text" placeholder="Enter your phone" />
+              </div>
+            </div>
+            <button>Сontact</button>
           </div>
         </div>
       </div>
