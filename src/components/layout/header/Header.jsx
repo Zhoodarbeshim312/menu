@@ -1,80 +1,96 @@
-import { IoSearchOutline } from "react-icons/io5";
-import "./Header.scss";
-import { HiOutlineMenuAlt3 } from "react-icons/hi";
-import { Link as ScrollLink } from "react-scroll";
-import { useSelector, useDispatch } from "react-redux";
-import { setLanguage } from "../../../toolkit/languageSlice";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { Link as ScrollLink } from "react-scroll";
+import { IoSearchOutline } from "react-icons/io5";
+import { HiOutlineMenuAlt3 } from "react-icons/hi";
+import { useChangeLanguage } from "../../store/useLanguage";
+import "./Header.scss";
+
+const translations = {
+  en: {
+    interior: "Interior",
+    about: "About Us",
+    menu: "Menu",
+    contacts: "Contacts",
+    search: "Search",
+  },
+  ru: {
+    interior: "Интерьер",
+    about: "О нас",
+    menu: "Меню",
+    contacts: "Контакты",
+    search: "Поиск",
+  },
+  kg: {
+    interior: "Ички жасалгасы",
+    about: "Биз жөнүндө",
+    menu: "Меню",
+    contacts: "Байланыш",
+    search: "Издөө",
+  },
+};
+
+const normalizeLang = (lang) => (lang === "ky" ? "kg" : lang);
+
 const Header = () => {
-  const lang = useSelector((state) => state.language.lang);
+  const { lang, setLang } = useChangeLanguage();
   const nav = useNavigate();
-  const dispatch = useDispatch();
   const [menu, setMenu] = useState(false);
 
-  const translations = {
-    en: {
-      interior: "Interior",
-      about: "About Us",
-      menu: "Menu",
-      contacts: "Contacts",
-      search: "Search",
-    },
-    ru: {
-      interior: "Интерьер",
-      about: "О нас",
-      menu: "Меню",
-      contacts: "Контакты",
-      search: "Поиск",
-    },
-    kg: {
-      interior: "Ички жасалгасы",
-      about: "Биз жөнүндө",
-      menu: "Меню",
-      contacts: "Байланыш",
-      search: "Издөө",
-    },
-  };
+  const handleLanguageChange = (value) => setLang(normalizeLang(value));
+
   return (
     <header id="header">
       <div className="container">
         <div className="header">
-          <h1
-            style={{
-              cursor: "pointer",
-            }}
-            onClick={() => nav("/")}
-          >
+          <h1 style={{ cursor: "pointer" }} onClick={() => nav("/")}>
             Restaurant
           </h1>
+
+          {/* Основная навигация */}
           <div className="header--nav">
-            <ScrollLink to="hero" smooth={true} duration={500} offset={-100}>
-              {translations[lang].interior}
+            <ScrollLink to="hero" smooth duration={500} offset={-100}>
+              {translations[normalizeLang(lang)]?.interior ||
+                translations.en.interior}
             </ScrollLink>
-            <ScrollLink to="about" smooth={true} duration={500} offset={-100}>
-              {translations[lang].about}
+            <ScrollLink to="about" smooth duration={500} offset={-100}>
+              {translations[normalizeLang(lang)]?.about ||
+                translations.en.about}
             </ScrollLink>
-            <ScrollLink to="menu" smooth={true} duration={500} offset={-100}>
-              {translations[lang].menu}
+            <ScrollLink to="menu" smooth duration={500} offset={-100}>
+              {translations[normalizeLang(lang)]?.menu || translations.en.menu}
             </ScrollLink>
-            <ScrollLink to="visit" smooth={true} duration={500} offset={-100}>
-              {translations[lang].contacts}
+            <ScrollLink to="visit" smooth duration={500} offset={-100}>
+              {translations[normalizeLang(lang)]?.contacts ||
+                translations.en.contacts}
             </ScrollLink>
+
+            {/* Поиск */}
             <div className="header--nav__form">
-              <input type="text" placeholder={translations[lang].search} />
+              <input
+                type="text"
+                placeholder={
+                  translations[normalizeLang(lang)]?.search ||
+                  translations.en.search
+                }
+              />
               <button>
                 <IoSearchOutline />
               </button>
             </div>
+
+            {/* Селект языка */}
             <select
-              onChange={(e) => dispatch(setLanguage(e.target.value))}
-              value={lang}
+              onChange={(e) => handleLanguageChange(e.target.value)}
+              value={normalizeLang(lang)}
             >
               <option value="en">EN</option>
               <option value="ru">RU</option>
               <option value="kg">KG</option>
             </select>
           </div>
+
+          {/* Кнопка мобильного меню */}
           <div className="header--menu">
             <button onClick={() => setMenu(!menu)}>
               <HiOutlineMenuAlt3 />
@@ -82,36 +98,61 @@ const Header = () => {
           </div>
         </div>
 
-        <div
-          style={{
-            display: menu ? "flex" : "none",
-          }}
-          className="modal"
-        >
+        {/* Мобильное меню */}
+        <div className="modal" style={{ display: menu ? "flex" : "none" }}>
           <div className="modal--nav">
-            <ScrollLink to="hero" smooth={true} duration={500} offset={-100}>
-              {translations[lang].interior}
+            <ScrollLink
+              to="hero"
+              smooth
+              duration={500}
+              offset={-100}
+              onClick={() => setMenu(false)}
+            >
+              {translations[normalizeLang(lang)]?.interior ||
+                translations.en.interior}
             </ScrollLink>
-            <ScrollLink to="about" smooth={true} duration={500} offset={-100}>
-              {translations[lang].about}
+            <ScrollLink
+              to="about"
+              smooth
+              duration={500}
+              offset={-100}
+              onClick={() => setMenu(false)}
+            >
+              {translations[normalizeLang(lang)]?.about ||
+                translations.en.about}
             </ScrollLink>
-            <ScrollLink to="menu" smooth={true} duration={500} offset={-100}>
-              {translations[lang].menu}
+            <ScrollLink
+              to="menu"
+              smooth
+              duration={500}
+              offset={-100}
+              onClick={() => setMenu(false)}
+            >
+              {translations[normalizeLang(lang)]?.menu || translations.en.menu}
             </ScrollLink>
-            <ScrollLink to="visit" smooth={true} duration={500} offset={-100}>
-              {translations[lang].contacts}
+            <ScrollLink
+              to="visit"
+              smooth
+              duration={500}
+              offset={-100}
+              onClick={() => setMenu(false)}
+            >
+              {translations[normalizeLang(lang)]?.contacts ||
+                translations.en.contacts}
             </ScrollLink>
+
+            {/* Кнопки смены языка */}
             <div
               style={{
                 display: "flex",
                 alignItems: "center",
                 gap: "10px",
+                marginTop: "10px",
               }}
-              className="header--nav__language"
             >
-              <a onClick={() => dispatch(setLanguage("en"))}>EN</a>
-              <a onClick={() => dispatch(setLanguage("ru"))}>RU</a>
-              <a onClick={() => dispatch(setLanguage("kg"))}>KG</a>
+              <button onClick={() => handleLanguageChange("en")}>EN</button>
+              <button onClick={() => handleLanguageChange("ru")}>RU</button>
+              <button onClick={() => handleLanguageChange("ky")}>KG</button>
             </div>
           </div>
         </div>

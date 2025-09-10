@@ -15,6 +15,15 @@
       align-items: center;
       width: 300px;
       border: 0.4px solid #a4a6a8;
+      box-sizing: border-box;
+
+      @media (max-width: 500px) {
+        width: 100%; // растягиваем контейнер на всю ширину экрана
+        flex-direction: row; // кнопки в ряд
+        gap: 15px;
+        overflow-x: auto; // скролл, если не помещаются
+        padding: 10px;
+      }
 
       button {
         display: flex;
@@ -23,7 +32,8 @@
         gap: 15px;
         font-family: "Playfair Display", serif;
         padding: 10px;
-        width: 100%;
+        width: 100%; // растягиваем по ширине родителя
+        box-sizing: border-box;
         font-weight: 600;
         font-style: SemiBold;
         font-size: 24px;
@@ -31,22 +41,30 @@
         background: #1f2731;
         color: #a4a6a8;
         transition: 0.2s ease-in-out;
+        border: none;
+
         &:hover {
           background: red;
           color: white;
-          div {
+          .line {
             width: 80%;
             border: 0.4px solid red;
           }
         }
+
         .line {
           transition: 0.2s ease-in-out;
-
           width: 80%;
           border: 0.4px solid #a4a6a8;
         }
+
+        @media (max-width: 500px) {
+          width: 150px; // фиксированная ширина каждой кнопки в ряду
+          flex-shrink: 0; // чтобы кнопка не сжималась
+        }
       }
     }
+
     .products {
       display: flex;
       align-items: center;

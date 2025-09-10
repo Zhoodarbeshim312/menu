@@ -4,20 +4,27 @@ import aboutLeftImg from "../../../../assets/images/aboutLeftImg.svg";
 import axios from "axios";
 import { useState } from "react";
 import { useEffect } from "react";
+import { useChangeLanguage } from "../../../store/useLanguage";
+
+export let api_key = import.meta.env.VITE_KEY;
 const About = () => {
+  console.log(api_key);
+
+  const { lang } = useChangeLanguage();
   const [about, setAbout] = useState([]);
   const getAboutUs = async () => {
-    let res = await axios.get(`http://13.60.233.80/ru/about/`);
+    let res = await axios.get(`${api_key}${lang}/about/`);
+
     setAbout(res.data);
     console.log(res.data);
   };
   useEffect(() => {
     getAboutUs();
-  }, []);
+  }, [lang]);
   return (
     <section id="about">
       <div className="container">
-        {about.map((el, idx) => (
+        {about.slice(-1).map((el, idx) => (
           <div key={idx} className="about">
             <div
               data-aos="fade-up"
