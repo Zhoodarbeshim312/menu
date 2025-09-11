@@ -1,6 +1,6 @@
-import "./Footer.module.scss";
 import { useChangeLanguage } from "../../../components/store/useLanguage";
 import { Link as ScrollLink } from "react-scroll";
+import styles from "./Footer.module.scss";
 
 const translations = {
   en: {
@@ -25,15 +25,13 @@ const translations = {
 
 const Footer = () => {
   const { lang } = useChangeLanguage();
-
-  // Нормализация языка: ky → kg
   const normalizeLang = (lang) => (lang === "ky" ? "kg" : lang);
   const t = translations[normalizeLang(lang)] || translations.en;
 
   return (
-    <footer id="Footer">
-      <div className="footer">
-        <div className="footer_on">
+    <footer className={styles.footerWrapper}>
+      <div className={styles.footer}>
+        <div className={styles.footerOn}>
           <h1>Restaurant</h1>
           <ul>
             <li>
@@ -59,9 +57,9 @@ const Footer = () => {
           </ul>
         </div>
 
-        <div className="footer_line"></div>
+        <div className={styles.footerLine}></div>
 
-        <p className="footer--copyright">
+        <p className={styles.footerCopyright}>
           &copy; {new Date().getFullYear()} Restaurant. All rights reserved.
         </p>
       </div>

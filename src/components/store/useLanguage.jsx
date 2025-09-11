@@ -1,16 +1,12 @@
 import { create } from "zustand";
 
-// Функция для нормализации кода языка
-const normalizeLang = (lang) => (lang === "ky" ? "kg" : lang);
-
-const savedLangRaw = localStorage.getItem("lang") || "en";
-const savedLang = normalizeLang(savedLangRaw);
+const savedLang = localStorage.getItem("lang") || "en";
 
 export const useChangeLanguage = create((set) => ({
   lang: savedLang,
   changeLang: () =>
     set((state) => {
-      const order = ["en", "ru", "kg"];
+      const order = ["en", "ru", "ky"];
       const currentIndex = order.indexOf(state.lang);
       const nextIndex = (currentIndex + 1) % order.length;
       const newLang = order[nextIndex];
@@ -18,8 +14,7 @@ export const useChangeLanguage = create((set) => ({
       return { lang: newLang };
     }),
   setLang: (lang) => {
-    const fixedLang = normalizeLang(lang);
-    localStorage.setItem("lang", fixedLang);
-    set({ lang: fixedLang });
+    localStorage.setItem("lang", lang);
+    set({ lang });
   },
 }));

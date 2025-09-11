@@ -1,128 +1,293 @@
 #Menu {
-  padding: 40px 0;
+  min-height: 100vh;
+  background-color: #2a3441;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   .menu {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px 20px;
     display: flex;
     align-items: flex-start;
-    justify-content: space-evenly;
-    @media (max-width: 750px) {
+    gap: 30px;
+
+    @media (max-width: 900px) {
       flex-direction: column;
-      align-items: center;
-      gap: 20px;
     }
-    .btns {
+
+    .sidebar {
       display: flex;
       flex-direction: column;
       align-items: center;
-      width: 300px;
-      border: 0.4px solid #a4a6a8;
-      box-sizing: border-box;
+      gap: 15px;
+      min-width: 220px;
 
-      @media (max-width: 500px) {
-        width: 100%; // растягиваем контейнер на всю ширину экрана
-        flex-direction: row; // кнопки в ряд
-        gap: 15px;
-        overflow-x: auto; // скролл, если не помещаются
-        padding: 10px;
+      @media (max-width: 900px) {
+        width: 100%;
+        min-width: auto;
       }
 
-      button {
-        display: flex;
-        align-items: center;
-        flex-direction: column;
-        gap: 15px;
-        font-family: "Playfair Display", serif;
-        padding: 10px;
-        width: 100%; // растягиваем по ширине родителя
-        box-sizing: border-box;
-        font-weight: 600;
-        font-style: SemiBold;
-        font-size: 24px;
-        line-height: 100%;
-        background: #1f2731;
-        color: #a4a6a8;
-        transition: 0.2s ease-in-out;
+      .closeBtn {
+        background: transparent;
         border: none;
+        color: white;
+        font-size: 24px;
+        cursor: pointer;
+        align-self: flex-end;
+        transition: 0.2s;
+        padding: 5px;
 
         &:hover {
-          background: red;
-          color: white;
-          .line {
-            width: 80%;
-            border: 0.4px solid red;
+          color: #ef272c;
+        }
+      }
+
+      .btns {
+        display: flex;
+        flex-direction: column;
+        width: 336px;
+        border: none;
+        overflow: hidden;
+        border: 0.2px solid #a5a6a8;
+        @media (max-width: 900px) {
+          width: 100%;
+        }
+
+        .btn {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          flex-direction: column;
+          gap: 10px;
+          padding: 16px 12px;
+          font-family: "Playfair Display", serif;
+          font-size: 16px;
+          font-weight: 500;
+          background: #1f2731;
+          color: #a5a6a8;
+          border: none;
+          cursor: pointer;
+          transition: all 0.2s;
+
+          &:hover,
+          &.active {
+            background: #ef272c;
+            color: white;
           }
         }
 
         .line {
-          transition: 0.2s ease-in-out;
-          width: 80%;
-          border: 0.4px solid #a4a6a8;
-        }
-
-        @media (max-width: 500px) {
-          width: 150px; // фиксированная ширина каждой кнопки в ряду
-          flex-shrink: 0; // чтобы кнопка не сжималась
+          width: 50%;
+          height: 0.4px;
+          background-color: #a4a6a8;
+          margin: 0 auto;
         }
       }
     }
 
-    .products {
+    .content {
+      flex: 1;
       display: flex;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 15px;
-      width: 700px;
-      height: 440px;
-      overflow-y: scroll;
-      @media (max-width: 1010px) {
-        width: 400px;
-      }
-      @media (max-width: 750px) {
-        justify-content: center;
-        gap: 20px;
-      }
-      @media (max-width: 400px) {
-        width: 300px;
-      }
-      .card {
-        border-radius: 5px;
+      flex-direction: column;
+      gap: 20px;
+
+      .details {
         display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-        background: white;
-        img {
-          border-radius: 5px 5px 0 0;
+        align-items: start;
+        gap: 20px;
+        background: #1f2731;
+        padding: 20px;
+        border-radius: 8px;
+        color: white;
+        max-width: 900px;
+        width: 100%;
+
+        @media (max-width: 600px) {
+          flex-direction: column;
         }
-        .content {
-          display: flex;
-          align-items: center;
-          justify-content: space-around;
-          width: 100%;
-          h3 {
+
+        .detailsImg {
+          width: 329px;
+          height: 187px;
+          object-fit: cover;
+          border-radius: 8px;
+
+          @media (max-width: 600px) {
+            width: 100%;
+          }
+        }
+
+        .info {
+          // flex: 1;
+          width: 329px;
+          img {
+            width: 100%;
+          }
+          h2 {
+            font-family: "Playfair Display", serif;
+            font-size: 16px;
+            margin: 0 0 8px 0;
+            font-weight: 600;
+          }
+
+          p {
             font-family: "League Spartan", sans-serif;
+            color: #a4a6a8;
+            font-size: 14px;
+            font-weight: 500;
+            margin: 0 0 10px 0;
+          }
+
+          span {
             color: #ef272c;
             font-weight: 600;
-            font-style: SemiBold;
-            font-size: 16px;
-            line-height: 100%;
+            font-size: 18px;
           }
-          .info {
-            margin: 10px 0;
-            h3 {
-              font-family: "League Spartan", sans-serif;
-              color: black;
-              font-weight: 600;
-              font-style: SemiBold;
-              font-size: 16px;
-              line-height: 100%;
+        }
+        .info_right {
+          display: flex;
+          flex-direction: column;
+        }
+        .info_bottom {
+          display: flex;
+          width: 100%;
+          max-width: 329px;
+          justify-content: space-between;
+        }
+
+        .extras {
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+          gap: 30px;
+          width: 100%;
+          h4 {
+            font-size: 16px;
+            margin: 0 0 10px 0;
+            font-weight: 500;
+
+            &:not(:first-child) {
+              margin-top: 15px;
             }
+          }
+
+          .price {
+            display: flex;
+            justify-content: space-between;
+
+            gap: 50px;
             p {
-              font-family: "League Spartan", sans-serif;
-              font-weight: 500;
-              font-style: Medium;
-              font-size: 14px;
-              line-height: 100%;
-              letter-spacing: 7%;
               color: #939393;
+            }
+          }
+        }
+      }
+
+      .similar {
+        h3 {
+          font-size: 22px;
+          margin-bottom: 20px;
+          color: white;
+          font-weight: 400;
+        }
+
+        .cards {
+          display: grid;
+          grid-template-columns: repeat(2, 1fr);
+          gap: 15px;
+
+          @media (max-width: 600px) {
+            grid-template-columns: 1fr;
+          }
+
+          .card {
+            background: white;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: transform 0.2s;
+            overflow: hidden;
+
+            &:hover {
+              transform: scale(1.02);
+            }
+
+            img {
+              width: 100%;
+              height: 120px;
+              object-fit: cover;
+            }
+
+            .cardInfo {
+              padding: 12px;
+
+              h4 {
+                font-size: 16px;
+                font-weight: 600;
+                margin: 0 0 4px 0;
+                color: #333;
+              }
+
+              p {
+                font-size: 13px;
+                color: #666;
+                margin: 0 0 8px 0;
+              }
+
+              span {
+                font-size: 14px;
+                font-weight: 600;
+                color: #ef272c;
+              }
+            }
+          }
+        }
+      }
+
+      .products {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+
+        @media (max-width: 600px) {
+          grid-template-columns: 1fr;
+        }
+
+        .card {
+          background: white;
+          border-radius: 8px;
+          cursor: pointer;
+          transition: transform 0.2s;
+          overflow: hidden;
+
+          &:hover {
+            transform: scale(1.02);
+          }
+
+          img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+          }
+
+          .cardInfo {
+            padding: 15px;
+
+            h4 {
+              font-size: 18px;
+              font-weight: 600;
+              margin: 0 0 6px 0;
+              color: #333;
+            }
+
+            p {
+              font-size: 14px;
+              color: #666;
+              margin: 0 0 10px 0;
+            }
+
+            span {
+              font-size: 16px;
+              font-weight: 600;
+              color: #ef272c;
             }
           }
         }
@@ -130,3 +295,4 @@
     }
   }
 }
+//!

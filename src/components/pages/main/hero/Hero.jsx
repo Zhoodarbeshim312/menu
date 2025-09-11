@@ -13,6 +13,7 @@ import { useChangeLanguage } from "../../../store/useLanguage";
 
 const translations = {
   en: {
+    p: "Delicious",
     title: "Italian Cuisine",
     description:
       "Classic steak & delicious with delightfully unexpected twists. The Restaurant`s sunny decor was inspired by the diners",
@@ -28,6 +29,7 @@ const translations = {
     contactBtn: "Contact",
   },
   ru: {
+    p: "Вкусный",
     title: "Итальянская кухня",
     description:
       "Классический стейк & вкусно с неожиданными изысками. Солнечный интерьер ресторана был вдохновлён посетителями",
@@ -42,7 +44,8 @@ const translations = {
     phoneLabel: "ТЕЛЕФОН",
     contactBtn: "Связаться",
   },
-  kg: {
+  ky: {
+    p: "Даамдуу",
     title: "Итальян ашканасы",
     description:
       "Классикалык стейк & даамдуу, күтүлбөгөн кызыктуу кошумчалар менен. Ресторандын жаркыраган дизайны коноктордон шыктанды",
@@ -67,9 +70,6 @@ const Hero = () => {
     Aos.init({});
   }, []);
 
-  // Нормализуем lang: если пришло "ky", используем "kg"
-  const normalizeLang = (lang) => (lang === "ky" ? "kg" : lang);
-  const t = translations[normalizeLang(lang)] || translations.en;
 
   return (
     <section id="hero">
@@ -85,17 +85,18 @@ const Hero = () => {
             className="hero--icons"
           >
             <img src={arrowLeft} alt="arrow left" />
+            <p>{translations[lang].p}</p>
             <img src={arrowRight} alt="arrow right" />
           </div>
 
           <h1 data-aos="fade-up" data-aos-duration="3000">
-            {t.title}
+            {translations[lang].title}
           </h1>
           <p data-aos="fade-up" data-aos-duration="3000">
-            {t.description}
+            {translations[lang].description}
           </p>
           <span data-aos="fade-up" data-aos-duration="3000">
-            {t.spanText}
+            {translations[lang].spanText}
           </span>
 
           <div
@@ -105,7 +106,7 @@ const Hero = () => {
           >
             <div className="hero--btn__line"></div>
             <button onClick={() => setModal(true)}>
-              {t.reserveBtn} <FaArrowRight />
+              {translations[lang].reserveBtn} <FaArrowRight />
             </button>
             <div className="hero--btn__line"></div>
           </div>
@@ -117,15 +118,15 @@ const Hero = () => {
             data-aos-anchor-placement="top-bottom"
           >
             <div className="hero--info__text">
-              <h3>{t.locationTitle}</h3>
+              <h3>{translations[lang].locationTitle}</h3>
               <div className="hero--info__text--line"></div>
               <p>
                 <ImLocation2 style={{ color: "red", fontSize: "20px" }} />
-                {t.locationAddress}
+                {translations[lang].locationAddress}
               </p>
               <span>
                 <ImLocation2 style={{ color: "red", fontSize: "20px" }} />
-                {t.locationAddress}
+                {translations[lang].locationAddress}
               </span>
             </div>
           </div>
@@ -137,11 +138,11 @@ const Hero = () => {
             className="hero--contact"
           >
             <div className="hero--contact__text">
-              <h3>{t.hotlineTitle}</h3>
+              <h3>{translations[lang].hotlineTitle}</h3>
               <div className="hero--contact__text--line"></div>
               <p>
                 <FaPhoneAlt style={{ color: "red", fontSize: "20px" }} />
-                {t.hotlinePhone}
+                {translations[lang].hotlinePhone}
               </p>
             </div>
           </div>
@@ -171,20 +172,20 @@ const Hero = () => {
             <div className="modal--form__img">
               <img src={userImg} alt="user" />
               <div className="modal--form__img--info">
-                <label>{t.nameLabel}</label>
-                <input type="text" placeholder={t.nameLabel} />
+                <label>{translations[lang].nameLabel}</label>
+                <input type="text" placeholder={translations[lang].nameLabel} />
               </div>
             </div>
 
             <div className="modal--form__img">
               <img src={phoneImg} alt="phone" />
               <div className="modal--form__img--info">
-                <label>{t.phoneLabel}</label>
-                <input type="text" placeholder={t.phoneLabel} />
+                <label>{translations[lang].phoneLabel}</label>
+                <input type="text" placeholder={translations[lang].phoneLabel} />
               </div>
             </div>
 
-            <button>{t.contactBtn}</button>
+            <button>{translations[lang].contactBtn}</button>
           </div>
         </div>
       </div>

@@ -1,221 +1,65 @@
-#Footer {
+.footerWrapper {
   background: #111;
   color: #fff;
   padding: 40px 0 20px;
   font-family: "League Spartan", sans-serif;
+}
 
-  .footer {
+.footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  padding-inline: 20px;
+}
+
+.footerOn {
+  width: 100%;
+  max-width: 1000px;
+  margin-inline: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  h1 {
+    font-family: "Silk Serif";
+    font-size: 22px;
+    font-weight: 600;
+    margin: 0;
+  }
+
+  ul {
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 20px;
-    padding-inline: 20px;
+    gap: 40px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
 
-    &_on {
-      width: 100%;
-      max-width: 1000px;
-      margin-inline: auto;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
+    li {
+      font-size: 16px;
+      font-weight: 400;
+      text-transform: capitalize;
+      cursor: pointer;
+      transition: color 0.3s ease;
 
-      h1 {
-        font-family: Silk Serif;
-        font-size: 22px;
-        font-weight: 600;
-        margin: 0;
-      }
-
-      ul {
-        display: flex;
-        gap: 40px;
-        list-style: none;
-        margin: 0;
-        padding: 0;
-
-        li {
-          font-size: 16px;
-          font-weight: 400;
-          text-transform: capitalize;
-          cursor: pointer;
-          transition: color 0.3s ease;
-
-          &:hover {
-            color: #aaa;
-          }
-        }
-      }
-
-      .footer_icons {
-        display: flex;
-        gap: 20px;
-        font-size: 24px;
-
-        svg {
-          cursor: pointer;
-          transition: transform 0.3s ease;
-
-          &:hover {
-            transform: scale(1.2);
-          }
-        }
-      }
-    }
-
-    &_line {
-      width: 100%;
-      max-width: 1000px;
-      height: 1px;
-      background: #666;
-      margin: 10px 0;
-    }
-
-    p {
-      font-size: 14px;
-      color: #ccc;
-      margin: 0;
-      text-align: center;
-    }
-  }
-}
-
-@media (max-width: 768px) {
-  #Footer {
-    padding: 30px 0 15px;
-
-    .footer {
-      gap: 15px;
-      padding-inline: 15px;
-
-      &_on {
-        h1 {
-          font-size: 20px;
-        }
-
-        ul {
-          gap: 30px;
-          flex-wrap: wrap;
-          justify-content: center;
-
-          li {
-            font-size: 15px;
-          }
-        }
-
-        .footer_icons {
-          gap: 15px;
-          font-size: 22px;
-        }
+      &:hover {
+        color: #aaa;
       }
     }
   }
 }
 
-@media (max-width: 540px) {
-  #Footer {
-    .footer_on {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      flex-direction: row;
-      gap: 20px;
-    }
-
-    ul {
-      li {
-        display: none;
-      }
-    }
-  }
+.footerLine {
+  width: 100%;
+  max-width: 1000px;
+  height: 1px;
+  background: #666;
+  margin: 10px 0;
 }
 
-@media (max-width: 480px) {
-  #Footer {
-    padding: 25px 0 15px;
-    .footer_on {
-      display: flex;
-      justify-content: space-between;
-    }
-    .footer {
-      gap: 15px;
-      padding-inline: 10px;
-
-      &_on {
-        h1 {
-          font-size: 18px;
-        }
-
-        ul {
-          gap: 20px;
-
-          li {
-            font-size: 14px;
-            display: none;
-          }
-        }
-
-        .footer_icons {
-          gap: 12px;
-          font-size: 20px;
-        }
-      }
-
-      p {
-        font-size: 13px;
-      }
-    }
-  }
-}
-
-@media (max-width: 300px) {
-  #Footer {
-    padding: 20px 0 12px;
-
-    .footer {
-      gap: 12px;
-      padding-inline: 8px;
-
-      &_on {
-        gap: 12px;
-
-        h1 {
-          font-size: 16px;
-          line-height: 1.2;
-          word-break: break-word;
-        }
-
-        ul {
-          gap: 15px;
-          flex-direction: column;
-
-          li {
-            font-size: 13px;
-            line-height: 1.3;
-          }
-        }
-
-        .footer_icons {
-          gap: 10px;
-          font-size: 18px;
-
-          svg {
-            &:hover {
-              transform: scale(1.1);
-            }
-          }
-        }
-      }
-
-      &_line {
-        margin: 8px 0;
-      }
-
-      p {
-        font-size: 12px;
-        line-height: 1.4;
-        word-break: break-word;
-        padding: 0 5px;
-      }
-    }
-  }
+.footerCopyright {
+  font-size: 14px;
+  color: #ccc;
+  margin: 0;
+  text-align: center;
 }

@@ -1,6 +1,5 @@
 import "./About.scss";
 import arrowLeft from "../../../../assets/images/arrowLeft.svg";
-import aboutLeftImg from "../../../../assets/images/aboutLeftImg.svg";
 import axios from "axios";
 import { useState } from "react";
 import { useEffect } from "react";
@@ -8,7 +7,6 @@ import { useChangeLanguage } from "../../../store/useLanguage";
 
 export let api_key = import.meta.env.VITE_KEY;
 const About = () => {
-  console.log(api_key);
 
   const { lang } = useChangeLanguage();
   const [about, setAbout] = useState([]);
@@ -16,8 +14,8 @@ const About = () => {
     let res = await axios.get(`${api_key}${lang}/about/`);
 
     setAbout(res.data);
-    console.log(res.data);
   };
+  
   useEffect(() => {
     getAboutUs();
   }, [lang]);
